@@ -1,0 +1,6 @@
+﻿CREATE PROCEDURE dbo.Table3_GetByID
+
+AS
+BEGIN
+    SELECT 'Table3_GetByID'
+END

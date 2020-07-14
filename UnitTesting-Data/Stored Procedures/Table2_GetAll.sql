@@ -1,0 +1,6 @@
+﻿CREATE PROCEDURE dbo.Table2_GetAll
+
+AS
+BEGIN
+    SELECT 'Table2_GetAll'
+END
