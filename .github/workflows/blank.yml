@@ -35,7 +35,7 @@ jobs:
     # Run msbuild
     - name: Build project
       working-directory: $PROJECTDIR
-      run: "msbuild ${PROJECTFILE}"
+      run: msbuild ${PROJECTFILE}
       env: 
         PROJECTDIR: "${DATABASE}-Tests"
         PROJECTFILE: "${DATABASE}-Tests.sqlproj"
