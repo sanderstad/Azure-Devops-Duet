@@ -32,8 +32,8 @@ jobs:
     
     # Run msbuild
     - name: MSBuild
-      working-directory: $(DATABASE)-Data
-      run: msbuild $(DATABASE)-Data.sqlproj
+      working-directory: $DATABASE-Data
+      run: msbuild $DATABASE-Data.sqlproj
     
     # Create artifact staging directory
     - name: Create artifact staging directory
