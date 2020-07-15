@@ -37,11 +37,11 @@ jobs:
     
     # Create artifact staging directory
     - name: Create artifact staging directory
-      run: 'mkdir "$GITHUB_WORKSPACE\staging"'
+      run: 'mkdir "staging"'
     
     # Create artifact staging directory
     - name: Create artifact staging directory
-      run: 'copy "UnitTesting-Tests\\bin\\release\*.*" "$GITHUB_WORKSPACE\\staging"'
+      run: 'copy "UnitTesting-Tests\\bin\\release\*.*" "staging"'
     
     # Upload the artifact
     - name: Upload a Build Artifact
@@ -50,4 +50,4 @@ jobs:
         # Artifact name
         name: $ARTIFACTNAME
         # A file, directory or wildcard pattern that describes what to upload
-        path: $GITHUB_WORKSPACE\staging\*.*
+        path: staging\*.*
