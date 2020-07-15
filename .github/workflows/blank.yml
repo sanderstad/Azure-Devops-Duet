@@ -13,7 +13,6 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   
-# This workflow contains a single job called "build"
   build:
 
     runs-on: windows-latest
@@ -32,14 +31,17 @@ jobs:
     # Run msbuild
     - name: Build project
       working-directory: UnitTesting-Tests
+      if: success()
       run: msbuild UnitTesting-Tests.sqlproj
             
     # Create artifact staging directory
     - name: Create artifact staging directory
+      if: success()
       run: 'mkdir "staging"'
     
     # Create artifact staging directory
     - name: Create artifact staging directory
+      if: success()
       run: 'copy "UnitTesting-Tests\\bin\\release\*.*" "staging"'
     
     # Upload the artifact
@@ -50,3 +52,25 @@ jobs:
         name: Database
         # A file, directory or wildcard pattern that describes what to upload
         path: staging\*.*
+        
+  test:
+    
+    runs-on: ubuntu-latest
+    
+    steps:
+      
+      # Create artifact staging directory
+      - name: Create artifact staging directory
+        run: 'mkdir "artifact"'
+      
+      - name: Download artifact
+        uses: actions/download-artifact@v2
+        with:
+          # Artifact name
+          name: Database
+          # Destination path
+          path: artifact
+          
+      - name: Check contents
+        run: "dir artifact"
+    
