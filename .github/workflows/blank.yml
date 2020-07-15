@@ -16,13 +16,13 @@ jobs:
 # This workflow contains a single job called "build"
   build:
 
-  env:
-    CONFIGURATION: release
-    SQLINSTANCE: localhost
-    DATABASE: UnitTesting
-    ARTIFACTNAME: Database
+    runs-on: windows-latest
 
-  runs-on: windows-latest
+    env:
+      CONFIGURATION: release
+      SQLINSTANCE: localhost
+      DATABASE: UnitTesting
+      ARTIFACTNAME: Database
 
     steps:
     # Checks out your repository under $GITHUB_WORKSPACE, so your job can access it
