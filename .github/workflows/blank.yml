@@ -32,8 +32,8 @@ jobs:
     
     # Run msbuild
     - name: Build project
-      working-directory: UnitTesting-Tests
-      run: 'msbuild UnitTesting-Tests.sqlproj'
+      working-directory: "${DATABASE}-Tests"
+      run: 'msbuild ${DATABASE}-Tests.sqlproj'
     
     # Create artifact staging directory
     - name: Create artifact staging directory
