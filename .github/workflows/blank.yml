@@ -41,7 +41,7 @@ jobs:
     
     # Create artifact staging directory
     - name: Create artifact staging directory
-      run: 'copy UnitTesting-Tests\bin\$CONFIGURATION\*.* "$GITHUB_WORKSPACE\\staging"'
+      run: 'copy "UnitTesting-Tests\\bin\\release\*.*" "$GITHUB_WORKSPACE\\staging"'
     
     # Upload the artifact
     - name: Upload a Build Artifact
