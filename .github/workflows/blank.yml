@@ -10,17 +10,19 @@ on:
   pull_request:
     branches: [ master ]
 
-env:
-  CONFIGURATION: release
-  SQLINSTANCE: localhost
-  DATABASE: UnitTesting
-  ARTIFACTNAME: Database
-
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
+  
+# This workflow contains a single job called "build"
   build:
-    runs-on: windows-latest
+
+  env:
+    CONFIGURATION: release
+    SQLINSTANCE: localhost
+    DATABASE: UnitTesting
+    ARTIFACTNAME: Database
+
+  runs-on: windows-latest
 
     steps:
     # Checks out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -32,8 +34,8 @@ jobs:
     
     # Run msbuild
     - name: Build project
-      working-directory: "${{jobs.build.env.Database}}-Tests"
-      run: 'msbuild ${{jobs.build.env.Database}}-Tests.sqlproj'
+      working-directory: "${Database}-Tests"
+      run: 'msbuild ${Database}-Tests.sqlproj'
     
     # Create artifact staging directory
     - name: Create artifact staging directory
