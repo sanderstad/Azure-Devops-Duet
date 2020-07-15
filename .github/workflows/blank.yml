@@ -32,8 +32,8 @@ jobs:
     
     # Run msbuild
     - name: MSBuild
-      working-directory: $DATABASE-Data
-      run: msbuild $DATABASE-Data.sqlproj
+      working-directory: ${DATABASE}-Tests
+      run: msbuild ${DATABASE}-Tests.sqlproj
     
     # Create artifact staging directory
     - name: Create artifact staging directory
@@ -41,7 +41,7 @@ jobs:
     
     # Create artifact staging directory
     - name: Create artifact staging directory
-      run: 'copy $(DATABASE)-Tests\bin\$CONFIGURATION\*.* "$GITHUB_WORKSPACE\\staging"'
+      run: 'copy ${DATABASE}-Tests\bin\$CONFIGURATION\*.* "$GITHUB_WORKSPACE\\staging"'
     
     # Upload the artifact
     - name: Upload a Build Artifact
