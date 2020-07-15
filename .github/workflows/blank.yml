@@ -32,23 +32,16 @@ jobs:
     
     # Run msbuild
     - name: MSBuild
-      working-directory: UnitTesting-Data
-      run: msbuild UnitTesting-Data.sqlproj
+      working-directory: $(DATABASE)-Data
+      run: msbuild $(DATABASE)-Data.sqlproj
     
     # Create artifact staging directory
-    - name: Artifact staging
+    - name: Create artifact staging directory
       run: 'mkdir "$GITHUB_WORKSPACE\staging"'
     
-    # Copy the artifacts
-    - name: Copy artifact files
-      uses: canastro/copy-action@0.0.2
-      with:
-        # Source file
-        source: |
-          **\$DATABASE-Tests\bin\$CONFIGURATION\*.*
-          **\*.publish.xml
-        # Target file
-        target: "$GITHUB_WORKSPACE\\staging"
+    # Create artifact staging directory
+    - name: Create artifact staging directory
+      run: 'copy $(DATABASE)-Tests\bin\$CONFIGURATION\*.* "$GITHUB_WORKSPACE\\staging"'
     
     # Upload the artifact
     - name: Upload a Build Artifact
