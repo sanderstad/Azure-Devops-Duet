@@ -45,7 +45,7 @@ jobs:
       with:
         # Source file
         source: |
-          **\$(database)-Tests\bin\$(configuration)\*.*
+          **\$DATABASE-Tests\bin\$CONFIGURATION\*.*
           **\*.publish.xml
         # Target file
         target: "$GITHUB_WORKSPACE\\staging"
