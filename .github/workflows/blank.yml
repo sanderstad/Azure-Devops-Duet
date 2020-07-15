@@ -35,9 +35,10 @@ jobs:
     # Run msbuild
     - name: Build project
       working-directory: $PROJECTDIR
-      run: 'msbuild ${DATABASE}-Tests.sqlproj'
+      run: "msbuild ${PROJECTFILE}"
       env: 
         PROJECTDIR: "${DATABASE}-Tests"
+        PROJECTFILE: "${DATABASE}-Tests.sqlproj"
             
     # Create artifact staging directory
     - name: Create artifact staging directory
