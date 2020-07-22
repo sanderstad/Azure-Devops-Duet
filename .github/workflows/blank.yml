@@ -69,8 +69,8 @@ jobs:
           # Artifact name
           name: Database
           # Destination path
-          path: artifact
+          #path: artifact
           
       - name: Check contents
-        run: "dir artifact"
+        run: "ls -la"
     
